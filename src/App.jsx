@@ -1,11 +1,12 @@
+
 import { useState } from 'react';
 import './App.css';
 
-// Import your components here
-// import Button from './components/Button';
-// import Navbar from './components/Navbar';
-// import Footer from './components/Footer';
-// import TaskManager from './components/TaskManager';
+//Import your components here
+import Button from './components/Button';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import TaskManager from './components/TaskManager';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -69,4 +70,14 @@ function App() {
   );
 }
 
-export default App; 
+export default function App(){
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="tasks" element={<TasksPage />} />
+        <Route path="api" element={<ApiPage />} />
+      </Route>
+    </Routes>
+  )
+}
